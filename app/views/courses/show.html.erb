@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h3>
+	<strong>Course:</strong> <%= @course.name %>
+</h3>
+
+<div>
+	<h3><strong>Students</strong></h3>
+	<div class='students'>
+		<% if @course.students.any? %>
+			<% @course.students.each do |student| %>
+				<%= render 'students/student', student: student %>
+			<% end %>
+		<% else %>
+		  <p>No students are enrolled in this course</p>
+		<% end %>
+	</div>
+</div>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %> | 
+<%= link_to 'Enroll a new student', new_course_enrollment_path(@course) %>
