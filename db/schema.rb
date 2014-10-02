@@ -11,29 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_141_002_195_629) do
+ActiveRecord::Schema.define(version: 20141002213323) do
 
-  create_table 'courses', force: true do |t|
-    t.string 'name'
-    t.datetime 'created_at'
-    t.datetime 'updated_at'
+  create_table "courses", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table 'enrollments', force: true do |t|
-    t.integer 'course_id'
-    t.integer 'student_id'
-    t.datetime 'created_at'
-    t.datetime 'updated_at'
+  create_table "enrollments", force: true do |t|
+    t.integer  "course_id"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "note"
   end
 
-  add_index 'enrollments', ['course_id'], name: 'index_enrollments_on_course_id'
-  add_index 'enrollments', ['student_id'], name: 'index_enrollments_on_student_id'
+  add_index "enrollments", ["course_id"], name: "index_enrollments_on_course_id"
+  add_index "enrollments", ["student_id"], name: "index_enrollments_on_student_id"
 
-  create_table 'students', force: true do |t|
-    t.string 'first_name'
-    t.string 'last_name'
-    t.datetime 'created_at'
-    t.datetime 'updated_at'
+  create_table "students", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

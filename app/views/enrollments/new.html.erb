@@ -9,7 +9,14 @@
 		</div>
 	<% end %>
 	
-	<%= f.select :student_id, @students.collect { |s| [s.name, s.id] } %>
+	<div>
+		<%= f.select :student_id, @students.collect { |s| [s.name, s.id] } %>
+	</div>
+	
+	<div>
+		<%= f.label :note %>
+		<%= f.text_field :note %>
+	</div>
 	<%= f.submit 'Enroll student' %>
 
 <% end %>

@@ -8,8 +8,10 @@
 	<h3><strong>Students</strong></h3>
 	<div class='students'>
 		<% if @course.students.any? %>
-			<% @course.students.each do |student| %>
-				<%= render 'students/student', student: student %>
+			<% @course.enrollments.each do |enrollment| %>
+			
+				<p><%= link_to enrollment.student.name, enrollment.student %> | <%= enrollment.note %></p>
+			
 			<% end %>
 		<% else %>
 		  <p>No students are enrolled in this course</p>
