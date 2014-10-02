@@ -1,0 +1,22 @@
+<h3><strong>Enroll a student in the <%= @course.name %> course</strong></h3>
+<%= form_for [@course, @enrollment] do |f| %>
+	
+	<% if @enrollment.errors.any? %>
+		<div class='errors'>
+			<% @enrollment.errors.full_messages.each do |msg| %>
+				<p><%= msg.capitalize %></p>
+			<% end %>
+		</div>
+	<% end %>
+	
+	<div>
+		<%= f.select :student_id, @students.collect { |s| [s.name, s.id] } %>
+	</div>
+	
+	<div>
+		<%= f.label :note %>
+		<%= f.text_field :note %>
+	</div>
+	<%= f.submit 'Enroll student' %>
+
+<% end %>
